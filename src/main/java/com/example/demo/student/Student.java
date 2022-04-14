@@ -6,7 +6,7 @@ import java.time.Period;
 
 @Entity //for hibernate
 @Table //for the table in our DB
-public class Student { //everything below is sued for mapping the student class to the DB
+public class Student { //everything below is used for mapping the student class to the DB
     @Id
     @SequenceGenerator(
             name = "student_sequence",
@@ -77,7 +77,7 @@ public class Student { //everything below is sued for mapping the student class 
     }
 
     public Integer getAge() {
-        return Period.between(this.dob, LocalDate.now()).getYears(); //this little guy helps us calculate the dob rather than hard coding it and implementing it in our DB
+        return Period.between(this.dob, LocalDate.now()).getYears(); //this little guy helps us calculate the dob rather than hard coding it
     }
 
     public void setAge(Integer age) {
