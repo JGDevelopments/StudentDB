@@ -11,12 +11,12 @@ public class Student { //everything below is used for mapping the student class 
     @SequenceGenerator(
             name = "student_sequence",
             sequenceName = "student_sequence",
-            allocationSize = 1
-    )
+            allocationSize = 1)
+
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "student_sequence"
-    )
+            generator = "student_sequence")
+
     private Long id;
     private String name;
     private String email;
@@ -28,10 +28,11 @@ public class Student { //everything below is used for mapping the student class 
     public Student() {
     }
 
-    public Student(Long id,
-                       String name,
-                       String email,
-                       LocalDate dob) {
+//    public void StudentMessage() {
+//        System.out.println("Hello fellow stakeholders! Today I will be taking you through a tour of my Student DB Application!!");
+//    }
+
+    public Student(Long id, String name, String email, LocalDate dob) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -86,12 +87,6 @@ public class Student { //everything below is used for mapping the student class 
 
     @Override
     public String toString() {
-        return "StudentData{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", dob=" + dob +
-                ", age=" + age +
-                '}';
+        return "StudentData{" + "id=" + id + ", name='" + name + '\'' + ", email='" + email + '\'' + ", dob=" + dob + ", age=" + age + '}';
     }
 }
