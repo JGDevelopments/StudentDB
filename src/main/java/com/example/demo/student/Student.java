@@ -4,14 +4,14 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.Period;
 
-@Entity //for hibernate
-@Table //for the table in our DB
-public class Student { //everything below is used for mapping the student class to the DB
+@Entity
+@Table
+public class Student {
     @Id
     @SequenceGenerator(
             name = "student_sequence",
             sequenceName = "student_sequence",
-            allocationSize = 1)
+            allocationSize =1)
 
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
@@ -22,15 +22,12 @@ public class Student { //everything below is used for mapping the student class 
     private String email;
     private LocalDate dob;
 
-    @Transient //eliminates it from being a column in the DB
+   @Transient
     private Integer age;
 
     public Student() {
     }
 
-//    public void StudentMessage() {
-//        System.out.println("Hello fellow stakeholders! Today I will be taking you through a tour of my Student DB Application!!");
-//    }
 
     public Student(Long id, String name, String email, LocalDate dob) {
         this.id = id;
@@ -78,15 +75,10 @@ public class Student { //everything below is used for mapping the student class 
     }
 
     public Integer getAge() {
-        return Period.between(this.dob, LocalDate.now()).getYears(); //this little guy helps us calculate the dob rather than hard coding it
-    }
+        return Period.between(this.dob, LocalDate.now()).getYears();
+    } //used for calculating the age
 
     public void setAge(Integer age) {
         this.age = age;
-    }
-
-    @Override
-    public String toString() {
-        return "StudentData{" + "id=" + id + ", name='" + name + '\'' + ", email='" + email + '\'' + ", dob=" + dob + ", age=" + age + '}';
     }
 }

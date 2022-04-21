@@ -8,12 +8,12 @@ import java.time.Month;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "api/v1/student")
+@RequestMapping(path = "api/v1/student") //RESTful
 public class StudentController {
 
     private final StudentService studentService;
     @Autowired //this enables references to be automatically injected into the constructor
-        public StudentController(StudentService studentService) {
+    public StudentController(StudentService studentService) {
         this.studentService = studentService;
     }
 
@@ -28,7 +28,7 @@ public class StudentController {
         studentService.addNewStudent(student);
     }
 
-    @DeleteMapping(path = "{studentId}")//this deletes our path
+    @DeleteMapping(path = "{studentId}")
     public void deleteStudent(@PathVariable("studentId")Long studentId){
         studentService.deleteStudent(studentId);
     }

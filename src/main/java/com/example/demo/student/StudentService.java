@@ -24,13 +24,12 @@ public class StudentService {
     }
 
     public List<Student> getStudents() {
-        return studentRepository.findAll(); //this will simply return a list
+        return studentRepository.findAll();
     }
 
 
     public void addNewStudent(Student student){//were taking the request body from the client and mapping it to the student body
-        Optional<Student> studentOptional = studentRepository
-                .findStudentByEmail(student.getEmail());
+        Optional<Student> studentOptional = studentRepository.findStudentByEmail(student.getEmail());
         if (studentOptional.isPresent()){
             throw new IllegalStateException("email taken");
         }
@@ -52,11 +51,11 @@ public class StudentService {
                 "student with id " + studentId + "does not exist"
                 ));
 
-        if (name != null && name.length() > 0 && !Objects.equals(student.getName(), name)) {
+        if (name != null && name.length() > 0 && ! Objects.equals(student.getName(), name)) {
             student.setName(name);
         }
 
-        if (email != null && email.length() > 0 && !Objects.equals(student.getEmail(), email)) {
+        if (email != null && email.length() > 0 && ! Objects.equals(student.getEmail(), email)) {
             Optional<Student> studentOptional = studentRepository.findStudentByEmail(email);
             if (studentOptional.isPresent()) {
                 throw new IllegalStateException("email taken");

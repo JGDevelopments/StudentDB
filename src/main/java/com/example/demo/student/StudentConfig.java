@@ -13,23 +13,29 @@ import java.util.List;
 public class StudentConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(StudentRepository repository) {
-        return args -> {
-            Student julian = new Student(
-                    "Julian",
-                    "jgaston001@my.wilmu.edu",
-                    LocalDate.of(2002, Month.MARCH, 13)
-            );
+    CommandLineRunner commandLineRunner(StudentRepository repository){
+            return args -> {
+                Student julian = new Student(
+                        "Julian",
+                        "jgaston001@my.wilmu.edu",
+                        LocalDate.of(2002, Month.MARCH, 13)
+                );
 
-            Student jack = new Student(
-                    "Jack",
-                    "jackie@my.wilmu.edu",
-                    LocalDate.of(1900, Month.JANUARY, 5)
-            );
+                Student jack = new Student(
+                        "Jack",
+                        "jackie@my.wilmu.edu",
+                        LocalDate.of(1900, Month.JANUARY, 5)
+                );
 
-            repository.saveAll(
-                    List.of(julian, jack)
-            );
-        };
+                Student igor = new Student(
+                        "Igor",
+                        "Igor@CareFirst.elevate.com",
+                        LocalDate.of(1995, Month.JANUARY, 5)
+                );
+
+                repository.saveAll(
+                        List.of(igor, jack, julian)
+                );
+            };
     }
 }
